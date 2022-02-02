@@ -3,13 +3,9 @@ import { Link} from "react-router-dom"
 
 function PokemonCard({ name, id }) {
 
-    function handleOnClick () {
-        document.body.style.overflow = "hidden"
-    }
-
     return (
         <div className="pokemon-card centered bgred">
-            <Link to={`/pokemon/${id}`} onClick={handleOnClick}>
+            <Link to={`/pokemon/${id}`}>
                 <button>
                     <img src="/pokemon-card-back.jpg" />
                     <p>{name[0].toUpperCase() + name.slice(1).toLowerCase()}</p>

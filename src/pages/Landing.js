@@ -59,7 +59,7 @@ function Landing() {
             <h1>Pokemon Center</h1>
             <div className='landing grid'>
                 {
-                    pokemon.map((res, idx) => <PokemonCard key={idx} name={res.name} id={page + idx + 1} />)
+                    pokemon.map((res, idx) => <PokemonCard key={idx} name={res.name} id={limit*(page+1) - limit + idx + 1} />)
                 }
 
             </div>
