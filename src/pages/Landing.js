@@ -18,6 +18,13 @@ function Landing() {
     const [errorMessage, setErrorMessage] = useState("")
 
     useEffect(function () {
+        setPage(parseInt(localStorage.getItem("page")??"0"))
+        setLimit(parseInt(localStorage.getItem("limit")??"20"))
+        setPrevApiLink(localStorage.getItem("prevApiLink"))
+        setNextApiLink(localStorage.getItem("nextApiLink"))
+    }, [])
+
+    useEffect(function () {
         getAllPokemon(page * limit, limit).then(res => {
             if (res?.error) {
                 setError(true)
@@ -27,7 +34,13 @@ function Landing() {
             setPokemon(res.results)
             setPrevApiLink(res.previous)
             setNextApiLink(res.next)
-        }).catch(e=>setError(true))
+            localStorage.setItem("page", page)
+            localStorage.setItem("limit", limit)
+            localStorage.setItem("prevApiLink", res.previous)
+            localStorage.setItem("nextApiLink", res.next)
+
+        })
+        .catch(e => setError(true))
     }, [limit, page])
 
     function prevContent() {
@@ -39,7 +52,7 @@ function Landing() {
     }
 
     if (error) {
-        return <HandleError message={errorMessage.toString()} error={error}/>
+        return <HandleError message={errorMessage.toString()} error={error} />
     }
     return (
         <div className='hero ta-centered'>
@@ -50,7 +63,7 @@ function Landing() {
                 }
 
             </div>
-            <Paginator page={page+1} prevApiLink={prevApiLink} nextApiLink={nextApiLink} setLimit={setLimit} limit={limit} prevContent={prevContent} nextContent={nextContent} />
+            <Paginator page={page + 1} prevApiLink={prevApiLink} nextApiLink={nextApiLink} setLimit={setLimit} limit={limit} prevContent={prevContent} nextContent={nextContent} />
         </div>
     )
 }

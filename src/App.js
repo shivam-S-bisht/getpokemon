@@ -1,7 +1,7 @@
 import Landing from "./pages/Landing";
 import Pokemon from "./pages/Pokemon"
-import { BrowserRouter as Router, Switch, Route, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route, useHistory } from "react-router-dom";
+// import { useEffect } from "react";
 
 function App() {
 
@@ -9,6 +9,7 @@ function App() {
     // useEffect (function () {
 
     // }, [location])
+    const history = useHistory()
 
     return (
         <>

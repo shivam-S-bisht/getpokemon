@@ -1,12 +1,20 @@
 import "../css/styles.css"
+import { Link} from "react-router-dom"
 
-function PokemonCard ({name, id}) {
+function PokemonCard({ name, id }) {
+
+    function handleOnClick () {
+        document.body.style.overflow = "hidden"
+    }
+
     return (
         <div className="pokemon-card centered bgred">
-            <button>
-                <img src="/pokemon-card-back.jpg" />
-                <p>{name[0].toUpperCase() + name.slice(1).toLowerCase()}</p>
-            </button>
+            <Link to={`/pokemon/${id}`} onClick={handleOnClick}>
+                <button>
+                    <img src="/pokemon-card-back.jpg" />
+                    <p>{name[0].toUpperCase() + name.slice(1).toLowerCase()}</p>
+                </button>
+            </Link>
         </div>
     )
 }
