@@ -49,8 +49,8 @@ function PokemonDetails() {
 
     return (
         <div className="poke-details">
-            <img className="card-image" src="/pokemon-details.png" />
-            <img className="pos-absolute poke-image" src={pokemonImage} />
+            <img className="card-image" src="/pokemon-details.png" alt="pokemon" />
+            <img className="pos-absolute poke-image" src={pokemonImage} alt="pokemon" />
             <p className="pos-absolute poke-power">{chooseRandom(powers)}</p>
             <p className="pos-absolute poke-vmax">{chooseRandom(vmaxRule)}</p>
             <p className="pos-absolute poke-name">{pokemonName}</p>
@@ -60,7 +60,7 @@ function PokemonDetails() {
             <p className="pos-absolute poke-weight">{weight}</p>
             <CloseIcon className="pos-absolute close-icon" width={40} onClick={() => {
                 console.log(history.length)
-                if (history.length >= 2) {
+                if (history.length > 2) {
                     history.goBack()
                 } else {
                     history.replace("/")

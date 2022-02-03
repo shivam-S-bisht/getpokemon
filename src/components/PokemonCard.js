@@ -7,7 +7,7 @@ function PokemonCard({ name, id }) {
         <div className="pokemon-card centered bgred">
             <Link to={`/pokemon/${id}`}>
                 <button>
-                    <img src="/pokemon-card-back.jpg" />
+                    <img src="/pokemon-card-back.jpg" alt="pokemon" />
                     <p>{name[0].toUpperCase() + name.slice(1).toLowerCase()}</p>
                 </button>
             </Link>
