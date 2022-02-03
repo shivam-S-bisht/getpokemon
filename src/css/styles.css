@@ -376,10 +376,6 @@ body {
   gap: 1rem;
 }
 
-.wrap {
-  /* flex-wrap: wrap; */
-}
-
 .ta-centered {
   text-align: center;
 }
@@ -394,7 +390,6 @@ body {
 
 .pokemon-card {
   width: 12rem;
-  /* height: auto; */
 }
 
 .pokemon-card img {
@@ -507,7 +502,6 @@ body {
   top: 3.3rem;
   cursor: pointer;
 }
-
 
 @media only screen and (max-width: 1088px) {
   .grid {

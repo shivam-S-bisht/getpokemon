@@ -30,6 +30,7 @@ function PokemonDetails() {
     const [attack, setAttack] = useState(0)
     const [defence, setDefence] = useState(0)
     const [weight, setWeight] = useState(0)
+    const [isLoaded, setIsloaded] = useState(false)
 
     useEffect(function () {
         getPokemonWithId(id).then(res => {
@@ -47,9 +48,15 @@ function PokemonDetails() {
         return iterator[index];
     }
 
+    function imageOnLoad () {
+        console.log("Image loaded 2")
+        setIsloaded(true)
+    }
+
     return (
         <div className="poke-details">
-            <img className="card-image" src="/pokemon-details.png" alt="pokemon" />
+            <img className="card-image" src="/pokemon-details.jpg" alt="pokemon" onLoad={()=>console.log("Image loaded 1")} style={{display: isLoaded ? "none":"block"}}/>
+            <img className="card-image" src="/pokemon-details.png" onLoad={imageOnLoad} alt="pokemon"  style={{opacity: isLoaded ? 1:0}}/>
             <img className="pos-absolute poke-image" src={pokemonImage} alt="pokemon" />
             <p className="pos-absolute poke-power">{chooseRandom(powers)}</p>
             <p className="pos-absolute poke-vmax">{chooseRandom(vmaxRule)}</p>
