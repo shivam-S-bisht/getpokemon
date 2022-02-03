@@ -59,7 +59,6 @@ function PokemonDetails() {
             <p className="pos-absolute poke-defence">{defence}</p>
             <p className="pos-absolute poke-weight">{weight}</p>
             <CloseIcon className="pos-absolute close-icon" width={40} onClick={() => {
-                console.log(history.length)
                 if (history.length > 2) {
                     history.goBack()
                 } else {

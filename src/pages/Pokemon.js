@@ -11,7 +11,7 @@ function Pokemon () {
     useEffect (()=>{
         document.body.style.overflowY = "hidden" 
         return (()=>{
-            if (history.action == "POP") {
+            if (history.action === "POP") {
                 document.body.style.overflowY = "scroll" 
             }
         })

@@ -1,25 +1,24 @@
 import Landing from "./pages/Landing";
 import Pokemon from "./pages/Pokemon"
-import { BrowserRouter as Router, Switch, Route, useHistory } from "react-router-dom";
-// import { useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
-
-    // const location = useLocation()
-    // useEffect (function () {
-
-    // }, [location])
-    const history = useHistory()
 
     return (
         <>
             <Router>
                 <Switch>
-                    <Route exact path="/" children={<Landing />} />
-                    <Route path="/pokemon/:id" children={<Pokemon />} />
+                    <Route exact path="/">
+                        <Landing />
+                    </Route>
+                    <Route path="/pokemon/:id">
+                        <Pokemon />
+                    </Route>
                 </Switch>
                 {
-                    <Route path="/pokemon" children={<Landing />} />
+                    <Route path="/pokemon">
+                        <Landing />
+                    </Route>
                 }
 
             </Router>

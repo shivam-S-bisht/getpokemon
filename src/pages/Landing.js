@@ -40,7 +40,7 @@ function Landing() {
             localStorage.setItem("nextApiLink", res.next)
 
         })
-        .catch(e => setError(true))
+        .catch(() => setError(true))
     }, [limit, page])
 
     function prevContent() {
